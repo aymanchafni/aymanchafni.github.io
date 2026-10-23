@@ -1,0 +1,411 @@
+{
+  "shared": {
+    "name": "Ayman Chafni",
+    "email": "aymanchafni@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/ayman-chafni/",
+    "github": "https://github.com/aymanchafni",
+    "chess": "https://www.chess.com/member/mrblank17",
+    "url": "https://aymanchafni.github.io",
+    "projects": [
+      {
+        "id": "ais",
+        "repo": "https://github.com/aymanchafni/simple-ais-pipeline",
+        "stack": "Python, PostgreSQL, FastAPI, Streamlit, Airflow, Docker"
+      },
+      {
+        "id": "etl_dbt",
+        "repo": "https://github.com/aymanchafni/etl_vs_dbt",
+        "stack": "Python, Pandas, DuckDB, dbt, Plotly"
+      },
+      {
+        "id": "airflow",
+        "repo": "https://github.com/aymanchafni/airflow_meteo",
+        "stack": "Airflow, Python, Pandas, Docker"
+      },
+      {
+        "id": "lstm",
+        "repo": null,
+        "stack": "Python, TensorFlow, Keras"
+      },
+      {
+        "id": "metah",
+        "repo": "https://github.com/aymanchafni/metah-viz",
+        "stack": "TypeScript, Next.js, Chart.js, Python, FastAPI"
+      }
+    ],
+    "skills": {
+      "languages": "Python, SQL, C#, Java, C++, JavaScript, Bash",
+      "data": "Apache Spark, Airflow, dbt, DuckDB, HDFS, Hive, PostgreSQL, MongoDB, ETL/ELT",
+      "ml": "Pandas, TensorFlow, Keras, LSTM, Plotly, Jupyter",
+      "cloud": "AWS (S3, Lambda), Azure, Docker, Kubernetes, CI/CD, Git",
+      "software": "Clean Architecture, OOP, REST APIs, FastAPI, microservices"
+    },
+    "certs": [
+      "AWS Certified Solutions Architect – Associate",
+      "IBM Data Science Professional Certificate",
+      "Agile/Scrum certification (Scrum Alliance)"
+    ]
+  },
+  "langs": {
+    "en": {
+      "label": "English",
+      "title": "Ayman Chafni, data engineer and data scientist",
+      "meta": "Ayman Chafni is a data engineer and data scientist in Montréal who builds ETL/ELT pipelines with Python, Spark, Airflow and dbt.",
+      "skip": "Skip to content",
+      "nav": {
+        "projects": "Projects",
+        "experience": "Experience",
+        "skills": "Skills",
+        "education": "Education",
+        "contact": "Contact"
+      },
+      "langnav": "Language",
+      "role": "Data engineer and data scientist in Montréal",
+      "intro": "I design ETL/ELT pipelines in Python and Spark, and the models and dashboards that run on top of them. Before that, I automated hardware test systems at EXFO. I'm now doing a master's in AI and data management at UQAM, where I also lead the SQL and web programming labs.",
+      "status": "Open to data engineering and data science roles",
+      "cta_email": "Email me",
+      "dag_caption": "From one of my projects: ship positions from NOAA, cleaned, measured and served as an API and a dashboard.",
+      "dag_link": "See the project",
+      "projects_title": "Projects",
+      "code": "Code on GitHub",
+      "more": "All repositories on GitHub",
+      "projects": {
+        "ais": {
+          "title": "Maritime traffic pipeline (AIS)",
+          "desc": "Ingests ship-tracking data from NOAA or CSV files, removes invalid positions and duplicates, computes distance travelled and time at dock, and loads it into PostgreSQL. A FastAPI service and a Streamlit dashboard sit on top, and Airflow can schedule the loads. Everything runs with Docker Compose."
+        },
+        "etl_dbt": {
+          "title": "ETL vs ELT benchmark: Pandas vs dbt",
+          "desc": "Builds the same star schema from TPC-H data twice, once as a Pandas and DuckDB ETL and once as dbt models on DuckDB, then compares them on run time, CPU, memory and throughput across data scales. It also weighs data-quality tests, code complexity and lineage."
+        },
+        "airflow": {
+          "title": "Weather data pipeline with Airflow",
+          "desc": "An Airflow DAG that pulls seven days of weather from the Open-Meteo API for Montréal and Paris in parallel, merges and transforms the results with Pandas, and saves them. Course project, run with Docker Compose."
+        },
+        "lstm": {
+          "title": "Time-series forecasting with LSTMs",
+          "desc": "Deep LSTM networks in TensorFlow and Keras for forecasting time series, the same approach I use in predictive analysis for freelance clients."
+        },
+        "metah": {
+          "title": "Metaheuristics visualizer",
+          "desc": "An interactive tool for watching optimization algorithms search a function in real time. A Python back end streams each iteration to a Next.js front end that charts it live."
+        }
+      },
+      "experience_title": "Experience",
+      "experience": [
+        {
+          "dates": "May 2024 – present",
+          "role": "Software and data engineer",
+          "org": "Freelance, Montréal",
+          "bullets": [
+            "Build scalable ETL pipelines in Python and Spark to integrate client data",
+            "Develop custom applications with analytics dashboards for small businesses",
+            "Implement machine learning models for time-series forecasting",
+            "Deploy containerized microservices with Docker on AWS"
+          ]
+        },
+        {
+          "dates": "March 2026 – present",
+          "role": "Teaching assistant (professeur auxiliaire)",
+          "org": "UQAM, Montréal",
+          "bullets": [
+            "Lead hands-on SQL labs on database design, queries and optimization",
+            "Supervise advanced web programming labs, client and server side"
+          ]
+        },
+        {
+          "dates": "Oct. 2022 – May 2024",
+          "role": "Software developer and test engineer",
+          "org": "EXFO, Montréal",
+          "bullets": [
+            "Built Python and C# applications in a Windows network environment",
+            "Implemented hardware-in-the-loop systems to automate telecom tests",
+            "Automated processes with custom APIs and shell scripts"
+          ]
+        },
+        {
+          "dates": "April – Oct. 2021",
+          "role": "Data engineering intern",
+          "org": "Innovation Maritime, Rimouski",
+          "bullets": [
+            "Built large-scale data flows with Hadoop, Spark and Hive",
+            "Tuned Hive queries and Spark jobs to cut processing time",
+            "Created interactive visualization tools for complex maritime data"
+          ]
+        }
+      ],
+      "skills_title": "Skills",
+      "skill_groups": {
+        "languages": "Languages",
+        "data": "Data engineering",
+        "ml": "Data science and ML",
+        "cloud": "Cloud and DevOps",
+        "software": "Software engineering"
+      },
+      "education_title": "Education",
+      "education": [
+        {
+          "degree": "M.Sc. in Computer Science, data intelligence and management",
+          "school": "UQAM",
+          "year": "In progress"
+        },
+        {
+          "degree": "M.Sc. in Computer Science",
+          "school": "UQAR",
+          "year": "2022, GPA 3.79"
+        },
+        {
+          "degree": "Engineering degree in computer systems",
+          "school": "ENSMR (Mines Rabat)",
+          "year": "2022"
+        }
+      ],
+      "certs_title": "Certifications",
+      "outside": "Outside work: football, running and <a href=\"{chess}\">chess</a>.",
+      "contact_title": "Contact",
+      "contact_text": "The fastest way to reach me is by email.",
+      "footer": "Built by hand, hosted on GitHub Pages.",
+      "sectionsnav": "Sections"
+    },
+    "fr": {
+      "label": "Français",
+      "title": "Ayman Chafni, ingénieur de données et data scientist",
+      "meta": "Ayman Chafni est ingénieur de données et data scientist à Montréal. Il conçoit des pipelines ETL/ELT avec Python, Spark, Airflow et dbt.",
+      "skip": "Aller au contenu",
+      "nav": {
+        "projects": "Projets",
+        "experience": "Expérience",
+        "skills": "Compétences",
+        "education": "Formation",
+        "contact": "Contact"
+      },
+      "langnav": "Langue",
+      "role": "Ingénieur de données et data scientist à Montréal",
+      "intro": "Je conçois des pipelines ETL/ELT en Python et Spark, ainsi que les modèles et tableaux de bord qui s'appuient dessus. Avant, j'automatisais des systèmes de test matériel chez EXFO. Je fais maintenant une maîtrise en IA et gestion des données à l'UQAM, où j'anime aussi les laboratoires de SQL et de programmation web.",
+      "status": "Ouvert aux postes en ingénierie et en science des données",
+      "cta_email": "M'écrire",
+      "dag_caption": "Tiré d'un de mes projets : des positions de navires de la NOAA, nettoyées, mesurées, puis servies par une API et un tableau de bord.",
+      "dag_link": "Voir le projet",
+      "projects_title": "Projets",
+      "code": "Code sur GitHub",
+      "more": "Tous mes dépôts sur GitHub",
+      "projects": {
+        "ais": {
+          "title": "Pipeline de trafic maritime (AIS)",
+          "desc": "Ingère des données de suivi de navires depuis la NOAA ou des fichiers CSV, élimine les positions invalides et les doublons, calcule la distance parcourue et le temps à quai, puis charge le tout dans PostgreSQL. Un service FastAPI et un tableau de bord Streamlit l'exploitent, et Airflow peut planifier les chargements. Le tout tourne avec Docker Compose."
+        },
+        "etl_dbt": {
+          "title": "Banc d'essai ETL vs ELT : Pandas vs dbt",
+          "desc": "Construit deux fois le même schéma en étoile à partir des données TPC-H, une fois en ETL avec Pandas et DuckDB, une fois en modèles dbt sur DuckDB, puis compare le temps d'exécution, le CPU, la mémoire et le débit à plusieurs échelles. Compare aussi les tests de qualité, la complexité du code et le lignage."
+        },
+        "airflow": {
+          "title": "Pipeline météo avec Airflow",
+          "desc": "Un DAG Airflow qui récupère en parallèle sept jours de météo depuis l'API Open-Meteo pour Montréal et Paris, fusionne et transforme les résultats avec Pandas, puis les enregistre. Projet de cours, exécuté avec Docker Compose."
+        },
+        "lstm": {
+          "title": "Prévision de séries temporelles avec des LSTM",
+          "desc": "Des réseaux LSTM profonds en TensorFlow et Keras pour prévoir des séries temporelles, l'approche que j'utilise en analyse prédictive pour mes clients."
+        },
+        "metah": {
+          "title": "Visualiseur de métaheuristiques",
+          "desc": "Un outil interactif pour suivre en temps réel des algorithmes d'optimisation qui explorent une fonction. Un back-end Python envoie chaque itération en continu à une interface Next.js qui la trace en direct."
+        }
+      },
+      "experience_title": "Expérience",
+      "experience": [
+        {
+          "dates": "Mai 2024 – aujourd'hui",
+          "role": "Ingénieur logiciel et données",
+          "org": "Travailleur autonome, Montréal",
+          "bullets": [
+            "Conception de pipelines ETL évolutifs en Python et Spark pour intégrer les données de clients",
+            "Développement d'applications sur mesure avec tableaux de bord analytiques pour des PME",
+            "Modèles d'apprentissage automatique pour l'analyse prédictive de séries temporelles",
+            "Déploiement de microservices conteneurisés avec Docker sur AWS"
+          ]
+        },
+        {
+          "dates": "Mars 2026 – aujourd'hui",
+          "role": "Professeur auxiliaire",
+          "org": "UQAM, Montréal",
+          "bullets": [
+            "Animation de laboratoires de SQL : conception de bases de données, requêtes et optimisation",
+            "Encadrement des laboratoires de programmation web avancée, côté client et serveur"
+          ]
+        },
+        {
+          "dates": "Oct. 2022 – mai 2024",
+          "role": "Développeur logiciel et ingénieur de tests",
+          "org": "EXFO, Montréal",
+          "bullets": [
+            "Développement d'applications Python et C# en environnement réseau Windows",
+            "Mise en place de systèmes hardware-in-the-loop pour automatiser des tests télécom",
+            "Automatisation de processus avec des API sur mesure et des scripts shell"
+          ]
+        },
+        {
+          "dates": "Avril – oct. 2021",
+          "role": "Stagiaire en ingénierie de données",
+          "org": "Innovation Maritime, Rimouski",
+          "bullets": [
+            "Architecture de flux de données massives avec Hadoop, Spark et Hive",
+            "Optimisation des requêtes Hive et des jobs Spark pour réduire les temps de traitement",
+            "Outils de visualisation interactive pour des données maritimes complexes"
+          ]
+        }
+      ],
+      "skills_title": "Compétences",
+      "skill_groups": {
+        "languages": "Langages",
+        "data": "Ingénierie de données",
+        "ml": "Science des données et AA",
+        "cloud": "Cloud et DevOps",
+        "software": "Génie logiciel"
+      },
+      "education_title": "Formation",
+      "education": [
+        {
+          "degree": "M.Sc. en informatique pour l'intelligence et la gestion des données",
+          "school": "UQAM",
+          "year": "En cours"
+        },
+        {
+          "degree": "M.Sc. en informatique",
+          "school": "UQAR",
+          "year": "2022, moyenne 3,79"
+        },
+        {
+          "degree": "Diplôme d'ingénieur en systèmes informatiques",
+          "school": "ENSMR (Mines Rabat)",
+          "year": "2022"
+        }
+      ],
+      "certs_title": "Certifications",
+      "outside": "En dehors du travail : foot, course à pied et <a href=\"{chess}\">échecs</a>.",
+      "contact_title": "Contact",
+      "contact_text": "Le plus simple pour me joindre, c'est par courriel.",
+      "footer": "Fait à la main, hébergé sur GitHub Pages.",
+      "sectionsnav": "Sections"
+    },
+    "ar": {
+      "label": "العربية",
+      "title": "Ayman Chafni، مهندس بيانات وعالم بيانات",
+      "meta": "Ayman Chafni مهندس بيانات وعالم بيانات في مونتريال، يبني خطوط معالجة البيانات ETL/ELT باستخدام Python وSpark وAirflow وdbt.",
+      "skip": "انتقل إلى المحتوى",
+      "nav": {
+        "projects": "المشاريع",
+        "experience": "الخبرة",
+        "skills": "المهارات",
+        "education": "التعليم",
+        "contact": "التواصل"
+      },
+      "langnav": "اللغة",
+      "role": "مهندس بيانات وعالم بيانات في مونتريال",
+      "intro": "أصمّم خطوط معالجة البيانات ETL/ELT باستخدام Python وSpark، إضافةً إلى النماذج ولوحات المعلومات المبنية عليها. قبل ذلك عملتُ على أتمتة أنظمة اختبار الأجهزة في شركة EXFO. أتابع حاليًا دراسة الماجستير في الذكاء الاصطناعي وإدارة البيانات بجامعة UQAM، حيث أشرف أيضًا على مختبرات SQL وبرمجة الويب.",
+      "status": "منفتح على فرص العمل في هندسة البيانات وعلم البيانات",
+      "cta_email": "راسلني",
+      "dag_caption": "من أحد مشاريعي: مواقع السفن من بيانات NOAA، تُنظَّف وتُحسب مؤشراتها، ثم تُتاح عبر واجهة برمجية ولوحة معلومات.",
+      "dag_link": "اطّلع على المشروع",
+      "projects_title": "المشاريع",
+      "code": "الشيفرة على GitHub",
+      "more": "جميع المستودعات على GitHub",
+      "projects": {
+        "ais": {
+          "title": "خط معالجة بيانات الملاحة البحرية (AIS)",
+          "desc": "يستورد بيانات تتبّع السفن من NOAA أو من ملفات CSV، ويحذف المواقع غير الصالحة والتكرارات، ويحسب المسافة المقطوعة ومدة الرسو، ثم يحمّلها في PostgreSQL. تعمل فوقه خدمة FastAPI ولوحة معلومات Streamlit، ويمكن جدولة التحميل عبر Airflow. يعمل النظام بالكامل باستخدام Docker Compose."
+        },
+        "etl_dbt": {
+          "title": "مقارنة بين ETL بأداة Pandas وELT بأداة dbt",
+          "desc": "يبني مخطط النجمة نفسه من بيانات TPC-H مرتين: مرة عبر ETL باستخدام Pandas وDuckDB، ومرة عبر نماذج dbt على DuckDB، ثم يقارن بينهما في زمن التنفيذ واستهلاك المعالج والذاكرة والإنتاجية على أحجام بيانات مختلفة، إلى جانب اختبارات الجودة وتعقيد الشيفرة وتتبّع مسار البيانات."
+        },
+        "airflow": {
+          "title": "خط معالجة بيانات الطقس باستخدام Airflow",
+          "desc": "مسار عمل (DAG) في Airflow يجلب بالتوازي بيانات الطقس لسبعة أيام من واجهة Open-Meteo لمدينتي مونتريال وباريس، ثم يدمج النتائج ويحوّلها باستخدام Pandas ويحفظها. مشروع دراسي يعمل باستخدام Docker Compose."
+        },
+        "lstm": {
+          "title": "التنبؤ بالسلاسل الزمنية باستخدام LSTM",
+          "desc": "شبكات LSTM عميقة مبنية بـ TensorFlow وKeras للتنبؤ بالسلاسل الزمنية، وهو النهج الذي أعتمده في التحليل التنبؤي لعملائي."
+        },
+        "metah": {
+          "title": "أداة لعرض الخوارزميات الاستدلالية",
+          "desc": "أداة تفاعلية لمتابعة خوارزميات التحسين وهي تستكشف دالةً ما في الوقت الفعلي. يرسل خادم Python كل تكرار بشكل متواصل إلى واجهة Next.js ترسمه مباشرة."
+        }
+      },
+      "experience_title": "الخبرة",
+      "experience": [
+        {
+          "dates": "مايو 2024 – حاليًا",
+          "role": "مهندس برمجيات وبيانات",
+          "org": "عمل حر، مونتريال",
+          "bullets": [
+            "بناء خطوط ETL قابلة للتوسّع باستخدام Python وSpark لدمج بيانات العملاء",
+            "تطوير تطبيقات مخصّصة مع لوحات معلومات تحليلية للشركات الصغيرة والمتوسطة",
+            "تطبيق نماذج تعلّم آلي للتنبؤ بالسلاسل الزمنية",
+            "نشر خدمات مصغّرة في حاويات باستخدام Docker على AWS"
+          ]
+        },
+        {
+          "dates": "مارس 2026 – حاليًا",
+          "role": "أستاذ مساعد",
+          "org": "جامعة UQAM، مونتريال",
+          "bullets": [
+            "تنشيط مختبرات SQL التطبيقية: تصميم قواعد البيانات والاستعلامات وتحسينها",
+            "الإشراف على مختبرات برمجة الويب المتقدّمة من جهة العميل والخادم"
+          ]
+        },
+        {
+          "dates": "أكتوبر 2022 – مايو 2024",
+          "role": "مطوّر برمجيات ومهندس اختبارات",
+          "org": "شركة EXFO، مونتريال",
+          "bullets": [
+            "تطوير تطبيقات بلغتي Python وC# في بيئة شبكات Windows",
+            "إنشاء أنظمة hardware-in-the-loop لأتمتة اختبارات الاتصالات",
+            "أتمتة العمليات عبر واجهات برمجية مخصّصة وسكربتات Shell"
+          ]
+        },
+        {
+          "dates": "أبريل – أكتوبر 2021",
+          "role": "متدرّب في هندسة البيانات",
+          "org": "Innovation Maritime، ريموسكي",
+          "bullets": [
+            "بناء تدفّقات بيانات ضخمة باستخدام Hadoop وSpark وHive",
+            "تحسين استعلامات Hive ومهام Spark لتقليص زمن المعالجة",
+            "إنشاء أدوات عرض تفاعلية لبيانات بحرية معقّدة"
+          ]
+        }
+      ],
+      "skills_title": "المهارات",
+      "skill_groups": {
+        "languages": "لغات البرمجة",
+        "data": "هندسة البيانات",
+        "ml": "علم البيانات والتعلّم الآلي",
+        "cloud": "الحوسبة السحابية وDevOps",
+        "software": "هندسة البرمجيات"
+      },
+      "education_title": "التعليم",
+      "education": [
+        {
+          "degree": "ماجستير في المعلوميات تخصّص ذكاء البيانات وإدارتها",
+          "school": "جامعة UQAM",
+          "year": "قيد الدراسة"
+        },
+        {
+          "degree": "ماجستير في المعلوميات",
+          "school": "جامعة UQAR",
+          "year": "2022، معدّل 3.79"
+        },
+        {
+          "degree": "دبلوم مهندس دولة في أنظمة المعلوميات",
+          "school": "المدرسة الوطنية العليا للمعادن بالرباط",
+          "year": "2022"
+        }
+      ],
+      "certs_title": "الشهادات المهنية",
+      "outside": "خارج العمل: كرة القدم والجري و<a href=\"{chess}\">الشطرنج</a>.",
+      "contact_title": "التواصل",
+      "contact_text": "أسرع طريقة للتواصل معي هي البريد الإلكتروني.",
+      "footer": "صُمّم يدويًا ويُستضاف على GitHub Pages.",
+      "sectionsnav": "الأقسام"
+    }
+  }
+}
