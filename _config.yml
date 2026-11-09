@@ -50,16 +50,37 @@ plugins:
 feed:
   path: feed.xml
 
+# Languages: English lives at the root, French under fr/.
+#   English article → _posts/YYYY-MM-DD-title.md      → /blog/YYYY/title/
+#   French article  → fr/_posts/YYYY-MM-DD-titre.md   → /fr/blog/YYYY/titre/
+# Give two translations the same `ref:` so the language switch links them.
 defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+      lang: en
+      locale: en_CA
   - scope:
       path: ""
       type: posts
     values:
       layout: post
+      lang: en
+      locale: en_CA
   - scope:
-      path: ""
+      path: "fr"
     values:
-      layout: default
+      lang: fr
+      locale: fr_CA
+  - scope:
+      path: "fr"
+      type: posts
+    values:
+      layout: post
+      lang: fr
+      locale: fr_CA
+      permalink: /fr/blog/:year/:title/
 
 exclude:
   - README.md

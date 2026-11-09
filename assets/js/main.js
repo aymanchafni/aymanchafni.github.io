@@ -17,17 +17,20 @@
   }
 
   // ---- Copy buttons on code blocks ----
+  var fr = (root.lang || "").indexOf("fr") === 0;
+  var COPY = fr ? "copier" : "copy";
+  var COPIED = fr ? "copié" : "copied";
   document.querySelectorAll(".prose div.highlighter-rouge").forEach(function (block) {
     var code = block.querySelector("pre code") || block.querySelector("pre");
     if (!code || !navigator.clipboard) return;
     var btn = document.createElement("button");
     btn.type = "button";
     btn.className = "copy-btn";
-    btn.textContent = "copy";
+    btn.textContent = COPY;
     btn.addEventListener("click", function () {
       navigator.clipboard.writeText(code.innerText).then(function () {
-        btn.textContent = "copied";
-        setTimeout(function () { btn.textContent = "copy"; }, 1500);
+        btn.textContent = COPIED;
+        setTimeout(function () { btn.textContent = COPY; }, 1500);
       });
     });
     block.appendChild(btn);

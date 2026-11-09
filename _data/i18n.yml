@@ -1,0 +1,128 @@
+# Interface strings for each language. Content (projects, experience…) lives
+# in _data/en/ and _data/fr/.
+
+en:
+  other: fr
+  switch_label: FR
+  switch_title: Version française
+  home_url: /
+  projects_url: /projects/
+  blog_url: /blog/
+  cv_url: /assets/files/Ayman-Chafni-CV.pdf   # replace with an English CV when you have one
+  tagline: Data Engineer · Data Scientist
+
+  skip: Skip to content
+  toggle_theme: Toggle dark mode
+  nav_projects: Projects
+  nav_experience: Experience
+  nav_writing: Writing
+  nav_contact: Contact
+
+  download_cv: Download CV
+  cv_short: CV (PDF)
+  portrait_alt: Portrait of Ayman Chafni
+
+  skills_eyebrow: "01 · toolkit"
+  skills_title: Across the whole data pipeline
+  projects_eyebrow: "02 · selected work"
+  projects_title: Projects
+  all_projects: All projects
+  experience_eyebrow: "03 · experience"
+  experience_title: Where I've worked
+  writing_eyebrow: "04 · writing"
+  writing_title: Latest articles
+  all_articles: All articles
+  articles_soon: Articles on data engineering and machine learning are coming soon.
+  education_eyebrow: "05 · education"
+  education_title: Education &amp; certifications
+  contact_eyebrow: "06 · contact"
+  contact_title: Let's talk data.
+  contact_lead: Hiring for a data engineering or data science role, or have a data problem to solve? I'd love to hear from you.
+
+  more_work: More work
+  more_on_github: More on
+  tech_stack: Tech stack
+  code: Code
+  live_demo: Live demo
+  writeup: Write-up
+
+  all_writing: "← All writing"
+  min_read: min read
+  updated: Updated
+  in: in
+  more_about_me: More about me
+  previous: "← Previous"
+  next: "Next →"
+  filter_label: Filter by topic
+  filter_all: All
+  no_match: No articles with this tag yet.
+  subscribe: Subscribe via RSS
+  blog_empty: Articles are coming soon. In the meantime, check out my
+  blog_empty_link: projects
+  other_lang_badge: In French
+
+  date_long: "%B %-d, %Y"
+  date_short: "%b %-d, %Y"
+
+fr:
+  other: en
+  switch_label: EN
+  switch_title: English version
+  home_url: /fr/
+  projects_url: /fr/projets/
+  blog_url: /fr/blog/
+  cv_url: /assets/files/Ayman-Chafni-CV.pdf
+  tagline: Ingénieur de données · Scientifique de données
+
+  skip: Aller au contenu
+  toggle_theme: Changer de thème
+  nav_projects: Projets
+  nav_experience: Expérience
+  nav_writing: Articles
+  nav_contact: Contact
+
+  download_cv: Télécharger mon CV
+  cv_short: CV (PDF)
+  portrait_alt: Portrait d'Ayman Chafni
+
+  skills_eyebrow: "01 · boîte à outils"
+  skills_title: Sur tout le pipeline de données
+  projects_eyebrow: "02 · réalisations"
+  projects_title: Projets
+  all_projects: Tous les projets
+  experience_eyebrow: "03 · expérience"
+  experience_title: Mon parcours
+  writing_eyebrow: "04 · articles"
+  writing_title: Derniers articles
+  all_articles: Tous les articles
+  articles_soon: Des articles sur l'ingénierie des données et l'apprentissage automatique arrivent bientôt.
+  education_eyebrow: "05 · formation"
+  education_title: Formation et certifications
+  contact_eyebrow: "06 · contact"
+  contact_title: Parlons données.
+  contact_lead: Vous recrutez pour un poste en ingénierie ou en science des données, ou vous avez un problème de données à résoudre? Écrivez-moi.
+
+  more_work: Autres projets
+  more_on_github: Plus de projets sur
+  tech_stack: Technologies
+  code: Code
+  live_demo: Démo
+  writeup: Article
+
+  all_writing: "← Tous les articles"
+  min_read: min de lecture
+  updated: Mis à jour le
+  in: à
+  more_about_me: En savoir plus
+  previous: "← Précédent"
+  next: "Suivant →"
+  filter_label: Filtrer par sujet
+  filter_all: Tous
+  no_match: Aucun article avec ce sujet pour l'instant.
+  subscribe: S'abonner au flux RSS
+  blog_empty: Les articles arrivent bientôt. En attendant, découvrez mes
+  blog_empty_link: projets
+  other_lang_badge: En anglais
+
+  months: [janvier, février, mars, avril, mai, juin, juillet, août, septembre, octobre, novembre, décembre]
+  months_short: [janv., févr., mars, avr., mai, juin, juil., août, sept., oct., nov., déc.]

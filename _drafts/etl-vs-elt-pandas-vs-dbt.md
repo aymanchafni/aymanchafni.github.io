@@ -7,6 +7,7 @@
 title: "ETL vs ELT: benchmarking Pandas against dbt on TPC-H"
 description: "I built the same star schema twice — once with Python and Pandas, once with dbt — and measured speed, memory, testability and complexity."
 tags: [data engineering, dbt, duckdb, benchmark]
+ref: etl-vs-elt     # same ref as the French version → the language switch links them
 mermaid: true      # enables ```mermaid diagrams
 math: false        # set to true to enable $LaTeX$ formulas
 # image: /assets/img/posts/etl-vs-elt-cover.png   # optional cover image

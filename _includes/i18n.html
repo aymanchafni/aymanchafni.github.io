@@ -1,0 +1,22 @@
+{%- comment -%}
+  Sets up language variables used by every layout:
+    lang    current language ("en" / "fr")
+    t       UI strings for that language (from _data/i18n.yml)
+    d       content data for that language (_data/en or _data/fr)
+    alt_url URL of this page in the other language (falls back to its home page)
+    alt_page the translated page/post, if one exists (same `ref`)
+{%- endcomment -%}
+{%- assign lang = page.lang | default: site.lang | default: "en" -%}
+{%- assign t = site.data.i18n[lang] -%}
+{%- assign d = site.data[lang] -%}
+{%- assign other_lang = t.other -%}
+{%- assign alt_page = nil -%}
+{%- if page.ref -%}
+  {%- assign alt_candidates = site.pages | concat: site.posts -%}
+  {%- assign alt_page = alt_candidates | where: "ref", page.ref | where: "lang", other_lang | first -%}
+{%- endif -%}
+{%- if alt_page -%}
+  {%- assign alt_url = alt_page.url | relative_url -%}
+{%- else -%}
+  {%- assign alt_url = site.data.i18n[other_lang].home_url | relative_url -%}
+{%- endif -%}

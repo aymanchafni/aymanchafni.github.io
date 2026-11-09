@@ -1,0 +1,22 @@
+# Texte de l'en-tête de la page d'accueil (version française).
+eyebrow: "ingénieur de données · scientifique de données · montréal"
+headline: "Je construis des pipelines de données — et les modèles qui les exploitent."
+intro: >-
+  Ingénieur logiciel et données, j'interviens sur tout le cycle de vie des
+  données : ingestion de données brutes, transformation à grande échelle avec
+  Spark, SQL et dbt, orchestration avec Airflow, puis prévisions grâce à
+  l'apprentissage automatique. Je poursuis actuellement une maîtrise axée sur
+  l'IA et la gestion des données à l'UQAM, où j'anime aussi les laboratoires de
+  SQL et de programmation web avancée.
+
+# Mettre à false pour masquer le badge vert « ouvert aux postes ».
+available: true
+availability: "Ouvert aux postes en ingénierie et en science des données"
+
+now:
+  - label: Freelance
+    text: Pipelines ETL, tableaux de bord et ML pour PME
+  - label: UQAM
+    text: M.Sc. en IA et gestion des données · Laboratoires SQL
+  - label: Auparavant
+    text: Développeur logiciel et ingénieur tests chez EXFO

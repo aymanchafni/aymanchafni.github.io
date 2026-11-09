@@ -1,17 +1,18 @@
-{%- assign home = '/' | relative_url -%}
-{%- if page.url == '/' -%}{%- assign anchor = '' -%}{%- else -%}{%- assign anchor = home -%}{%- endif -%}
+{%- assign home = t.home_url | relative_url -%}
+{%- if page.ref == 'home' -%}{%- assign anchor = '' -%}{%- else -%}{%- assign anchor = home -%}{%- endif -%}
 <header class="site-header">
   <div class="container header-inner">
-    <a class="brand" href="{{ home }}" aria-label="Home">
+    <a class="brand" href="{{ home }}" aria-label="{{ site.author.name }}">
       <span class="brand-mark">AC</span>
       <span class="brand-name">{{ site.author.name }}</span>
     </a>
     <nav class="nav" aria-label="Main">
-      <a href="{{ '/projects/' | relative_url }}" {% if page.url == '/projects/' %}aria-current="page"{% endif %}>Projects</a>
-      <a href="{{ anchor }}#experience">Experience</a>
-      <a href="{{ '/blog/' | relative_url }}" {% if page.url contains '/blog/' %}aria-current="page"{% endif %}>Writing</a>
-      <a href="{{ anchor }}#contact">Contact</a>
-      <button class="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">
+      <a href="{{ t.projects_url | relative_url }}" {% if page.ref == 'projects' %}aria-current="page"{% endif %}>{{ t.nav_projects }}</a>
+      <a class="nav-experience" href="{{ anchor }}#experience">{{ t.nav_experience }}</a>
+      <a href="{{ t.blog_url | relative_url }}" {% if page.ref == 'blog' or page.layout == 'post' %}aria-current="page"{% endif %}>{{ t.nav_writing }}</a>
+      <a class="nav-contact" href="{{ anchor }}#contact">{{ t.nav_contact }}</a>
+      <a class="lang-switch" href="{{ alt_url }}" hreflang="{{ other_lang }}" lang="{{ other_lang }}" title="{{ t.switch_title }}" aria-label="{{ t.switch_title }}">{{ t.switch_label }}</a>
+      <button class="theme-toggle" type="button" aria-label="{{ t.toggle_theme }}" title="{{ t.toggle_theme }}">
         {% include icon.html name="sun" %}{% include icon.html name="moon" %}
       </button>
     </nav>

@@ -2,10 +2,11 @@
   <div class="container footer-inner">
     <p>© {{ site.time | date: "%Y" }} {{ site.author.name }} · {{ site.author.location }}</p>
     <p class="footer-links">
+      <a href="{{ alt_url }}" hreflang="{{ other_lang }}" lang="{{ other_lang }}">{{ t.switch_title }}</a>
       <a href="https://github.com/{{ site.author.github }}" aria-label="GitHub">{% include icon.html name="github" %}</a>
       <a href="https://www.linkedin.com/in/{{ site.author.linkedin }}/" aria-label="LinkedIn">{% include icon.html name="linkedin" %}</a>
       <a href="mailto:{{ site.author.email }}" aria-label="Email">{% include icon.html name="mail" %}</a>
-      <a href="{{ '/feed.xml' | relative_url }}" aria-label="RSS feed">{% include icon.html name="rss" %}</a>
+      <a href="{{ '/feed.xml' | relative_url }}" aria-label="RSS">{% include icon.html name="rss" %}</a>
     </p>
   </div>
 </footer>

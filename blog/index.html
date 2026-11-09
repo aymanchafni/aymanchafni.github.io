@@ -1,32 +1,9 @@
 ---
-layout: page
+layout: blog
+lang: en
+ref: blog
 title: Writing
 eyebrow: articles &amp; notes
 description: Notes on data engineering, pipelines, SQL and machine learning — things I've built, benchmarked or learned the hard way.
 permalink: /blog/
 ---
-{%- if site.posts.size > 0 %}
-{%- assign all_tags = site.posts | map: "tags" | join: "," | split: "," | uniq | sort_natural -%}
-{%- if all_tags.size > 0 %}
-<div class="tag-filter" role="group" aria-label="Filter by topic">
-  <button type="button" class="chip" data-tag="" aria-pressed="true">All</button>
-  {%- for t in all_tags %}{% if t != "" %}
-  <button type="button" class="chip" data-tag="{{ t | slugify }}" aria-pressed="false">{{ t }}</button>
-  {%- endif %}{% endfor %}
-</div>
-{%- endif %}
-
-{%- assign by_year = site.posts | group_by_exp: "p", "p.date | date: '%Y'" -%}
-{%- for year in by_year %}
-<section class="year-group">
-  <h2 class="year">{{ year.name }}</h2>
-  <ul class="post-list">
-    {%- for post in year.items %}{% include post-item.html post=post %}{% endfor %}
-  </ul>
-</section>
-{%- endfor %}
-<p class="empty" id="no-match" hidden>No articles with this tag yet.</p>
-<p class="muted"><a href="{{ '/feed.xml' | relative_url }}">{% include icon.html name="rss" %} Subscribe via RSS</a></p>
-{%- else %}
-<p class="empty">Articles are coming soon. In the meantime, check out my <a href="{{ '/projects/' | relative_url }}">projects</a>.</p>
-{%- endif %}

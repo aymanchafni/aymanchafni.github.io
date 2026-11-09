@@ -1,0 +1,30 @@
+---
+layout: page
+---
+{%- include i18n.html -%}
+{%- include visible-posts.html -%}
+{%- if visible_posts.size > 0 %}
+{%- assign all_tags = visible_posts | map: "tags" | join: "," | split: "," | uniq | sort_natural -%}
+{%- if all_tags.size > 0 %}
+<div class="tag-filter" role="group" aria-label="{{ t.filter_label }}">
+  <button type="button" class="chip" data-tag="" aria-pressed="true">{{ t.filter_all }}</button>
+  {%- for tag in all_tags %}{% if tag != "" %}
+  <button type="button" class="chip" data-tag="{{ tag | slugify }}" aria-pressed="false">{{ tag }}</button>
+  {%- endif %}{% endfor %}
+</div>
+{%- endif %}
+
+{%- assign by_year = visible_posts | group_by_exp: "p", "p.date | date: '%Y'" -%}
+{%- for year in by_year %}
+<section class="year-group">
+  <h2 class="year">{{ year.name }}</h2>
+  <ul class="post-list">
+    {%- for post in year.items %}{% include post-item.html post=post %}{% endfor %}
+  </ul>
+</section>
+{%- endfor %}
+<p class="empty" id="no-match" hidden>{{ t.no_match }}</p>
+<p class="muted"><a href="{{ '/feed.xml' | relative_url }}">{% include icon.html name="rss" %} {{ t.subscribe }}</a></p>
+{%- else %}
+<p class="empty">{{ t.blog_empty }} <a href="{{ t.projects_url | relative_url }}">{{ t.blog_empty_link }}</a>.</p>
+{%- endif %}

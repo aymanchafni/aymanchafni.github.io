@@ -1,0 +1,23 @@
+# Compétences, organisées selon les étapes d'un pipeline de données.
+stages:
+  - name: Ingestion
+    blurb: Récupérer les données d'API, de fichiers et de flux, et les déposer de façon fiable.
+    items: [Python, API REST, Airflow, HDFS, Bash]
+
+  - name: Transformation
+    blurb: Nettoyer, joindre et modéliser les données à grande échelle.
+    items: [SQL, Apache Spark, dbt, Pandas, Hive, DuckDB]
+
+  - name: Stockage et modélisation
+    blurb: Concevoir des schémas qui rendent l'analytique rapide et simple.
+    items: [PostgreSQL, MongoDB, Parquet, Schémas en étoile, ETL / ELT]
+
+  - name: Apprentissage
+    blurb: Prévoir, classifier et révéler la structure des données.
+    items: [TensorFlow, Keras, LSTM, Séries temporelles, ARIMA, Apprentissage automatique]
+
+  - name: Déploiement
+    blurb: Empaqueter, déployer et servir en production.
+    items: [Docker, Kubernetes, AWS, Azure, CI/CD, FastAPI, Git]
+
+also: "Aussi : C#/.NET, Java, C++, JavaScript/TypeScript · Clean Architecture, POO, microservices · Agile/Scrum"

@@ -1,0 +1,16 @@
+{%- comment -%}
+  Builds `visible_posts`: every post in the current language, plus posts in the
+  other language that have no translation (they get a small language badge).
+{%- endcomment -%}
+{%- assign visible_posts = "" | split: "" -%}
+{%- for post in site.posts -%}
+  {%- assign keep = false -%}
+  {%- if post.lang == lang -%}
+    {%- assign keep = true -%}
+  {%- else -%}
+    {%- assign twin = nil -%}
+    {%- if post.ref -%}{%- assign twin = site.posts | where: "ref", post.ref | where: "lang", lang | first -%}{%- endif -%}
+    {%- unless twin -%}{%- assign keep = true -%}{%- endunless -%}
+  {%- endif -%}
+  {%- if keep -%}{%- assign visible_posts = visible_posts | push: post -%}{%- endif -%}
+{%- endfor -%}

@@ -1,0 +1,135 @@
+# ---------------------------------------------------------------------------
+# Projets (version française). Garder le même ordre que _data/en/projects.yml.
+# `featured: true` → affiché sur la page d'accueil (4 à 6 idéalement).
+# Champs : voir _data/en/projects.yml.
+# ---------------------------------------------------------------------------
+
+- title: Pipeline de données AIS maritimes
+  category: Ingénierie des données
+  featured: true
+  repo: simple-ais-pipeline
+  summary: >-
+    Pipeline de bout en bout pour le suivi du trafic portuaire (Tanger Med) :
+    ingestion des données de positionnement des navires (AIS) de la NOAA,
+    nettoyage, calcul de métriques par navire et diffusion via une API REST et
+    un tableau de bord interactif.
+  highlights:
+    - Ingestion depuis les archives AIS de la NOAA ou des fichiers CSV/ZIP locaux
+    - Nettoyage (positions invalides, doublons) et métriques dérivées comme la distance parcourue et le temps à quai
+    - Stockage PostgreSQL, points d'accès FastAPI et tableau de bord Streamlit
+    - Planifié avec Airflow; toute la pile démarre avec une seule commande docker-compose
+  stack: [Python, Airflow, PostgreSQL, FastAPI, Streamlit, Docker]
+
+- title: "ETL vs ELT : banc d'essai Pandas contre dbt"
+  category: Ingénierie des données
+  featured: true
+  repo: etl_vs_dbt
+  summary: >-
+    Étude comparative d'un pipeline ETL impératif (Python + Pandas) et d'un
+    pipeline ELT déclaratif (dbt), tous deux sur DuckDB, qui construisent le même
+    schéma en étoile à partir des données TPC-H.
+  highlights:
+    - Génération des données TPC-H à différents facteurs d'échelle, stockées en Parquet
+    - Construction du même modèle dimensionnel (fact_sales + dimensions client, produit, région et date) des deux façons
+    - Mesure du temps d'exécution, du temps CPU, du pic mémoire et du débit par table et par facteur d'échelle
+    - Comparaison des tests de qualité, de la complexité du code (LOC, complexité cyclomatique, indice de maintenabilité) et du lignage
+  stack: [Python, dbt, DuckDB, Pandas, Parquet, Plotly]
+
+- title: Pipeline météo multi-villes
+  category: Ingénierie des données
+  featured: true
+  repo: airflow_meteo
+  summary: >-
+    Un DAG Airflow qui récupère en parallèle les données météo quotidiennes de
+    Montréal et de Paris depuis l'API Open-Meteo, puis les fusionne, les
+    transforme et sauvegarde les résultats.
+  highlights:
+    - Graphe de dépendances en éventail (extractions parallèles → fusion → transformation → chargement)
+    - Zone d'atterrissage JSON brute, puis sorties tabulaires avec Pandas
+    - Exécution locale avec Docker Compose
+  stack: [Airflow, Python, Pandas, Docker]
+
+- title: Metah-Viz — visualisation de métaheuristiques
+  category: Optimisation · Visualisation
+  featured: true
+  repo: metah-viz
+  summary: >-
+    Application web interactive pour observer en temps réel des algorithmes
+    d'optimisation explorer une fonction : un backend Python diffuse chaque
+    itération vers un graphique mis à jour en direct.
+  highlights:
+    - Le backend FastAPI diffuse les itérations de l'optimiseur au client
+    - Le frontend Next.js / TypeScript affiche la recherche en direct
+  stack: [Python, FastAPI, Next.js, TypeScript]
+
+- title: Service de filtrage des pièces jointes courriel
+  category: Ingénierie des données · Automatisation
+  repo: email-blacklist-monitor
+  summary: >-
+    Surveille une boîte Outlook via Microsoft Graph, extrait les données des
+    pièces jointes Excel, CSV, PDF et images (avec OCR), les compare à une liste
+    noire et envoie des alertes automatiques.
+  highlights:
+    - Authentification d'application Azure AD avec MSAL
+    - Extraction de texte des PDF (PyMuPDF) et des images (OCR Tesseract)
+    - Correspondance par règles sur les numéros d'identité, combinaisons de noms et numéros d'immatriculation
+  stack: [Python, Microsoft Graph, Azure AD, Pandas, OCR]
+
+- title: Prévision de séries temporelles avec LSTM
+  category: Science des données
+  summary: >-
+    Réseaux de neurones récurrents profonds (TensorFlow / Keras) pour l'analyse
+    et la prévision de séries temporelles.
+  stack: [Python, TensorFlow, Keras, LSTM]
+
+- title: Prévision de la COVID-19 avec ARIMA
+  category: Science des données
+  repo: Arima
+  summary: >-
+    Agrège les données COVID-19 des comtés américains en séries nationales
+    quotidiennes de nouveaux cas et de décès, puis ajuste des modèles ARIMA pour
+    les prévoir.
+  stack: [Python, Pandas, statsmodels, pmdarima]
+
+- title: Classificateur par forêt aléatoire
+  category: Apprentissage automatique
+  repo: random_forest
+  summary: >-
+    Modèle de forêt aléatoire pour la prédiction de maladies cardiaques, avec
+    métriques d'évaluation et rendus Graphviz d'arbres individuels.
+  stack: [Python, scikit-learn, Graphviz]
+
+- title: Algorithmes de forage de données
+  category: Apprentissage automatique
+  repo: https://github.com/aymanchafni?tab=repositories
+  summary: >-
+    Implémentations et expériences avec des techniques classiques de forage de
+    données : K-moyennes, règles d'association Apriori, arbres de décision et
+    classificateurs simples.
+  stack: [Python, K-means, Apriori, Arbres de décision]
+
+- title: Pare-feu à filtre de Bloom
+  category: Algorithmique
+  repo: BloomFilter
+  summary: >-
+    Un filtre de Bloom qui simule un pare-feu capable de tester, bloquer et
+    débloquer des adresses réseau avec une empreinte mémoire minimale.
+  stack: [Python, Structures probabilistes]
+
+- title: Colonies de fourmis et essaims particulaires
+  category: Optimisation
+  repo: ant_colony_and_particle_swarm
+  summary: >-
+    Implémentations de l'optimisation par colonies de fourmis pour des problèmes
+    combinatoires et de l'optimisation par essaims particulaires pour des
+    fonctions continues.
+  stack: [Python, Jupyter, Métaheuristiques]
+
+- title: Solution en architecture propre
+  category: Génie logiciel
+  repo: Solution-Clean-Architecture
+  summary: >-
+    Application d'entreprise maintenable en C#/.NET suivant la Clean
+    Architecture : entités du domaine, interfaces de dépôts, injection de
+    dépendances et patrons de conception.
+  stack: [C#, .NET, Clean Architecture]

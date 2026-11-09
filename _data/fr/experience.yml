@@ -1,0 +1,42 @@
+# Du plus récent au plus ancien.
+- role: Ingénieur logiciel et données
+  company: Freelance
+  location: Montréal, QC
+  start: mai 2024
+  end: présent
+  points:
+    - Conception de pipelines ETL évolutifs sous Python et Spark pour l'intégration de données clients
+    - Développement d'applications sur mesure avec tableaux de bord analytiques pour PME
+    - Implémentation de modèles d'apprentissage automatique pour l'analyse prédictive de séries temporelles
+    - Déploiement d'architectures microservices conteneurisées avec Docker et AWS
+
+- role: Professeur auxiliaire
+  company: UQAM
+  location: Montréal, QC
+  start: mars 2026
+  end: présent
+  points:
+    - "Animation de laboratoires pratiques en SQL : conception de bases de données, requêtes et optimisation"
+    - Encadrement de laboratoires en programmation web avancée (développement côté client et serveur)
+    - Accompagnement des étudiants dans l'application des concepts théoriques à des cas pratiques
+
+- role: Développeur logiciel et ingénieur tests
+  company: EXFO
+  location: Montréal, QC
+  start: oct. 2022
+  end: mai 2024
+  points:
+    - Développement d'applications complexes (Python/C#) en environnement réseau Windows
+    - Implémentation de systèmes Hardware-in-the-Loop (HIL) pour l'automatisation de tests télécom
+    - Automatisation des processus via des API personnalisées et des scripts Shell
+    - Collaboration étroite en laboratoire pour le débogage matériel (oscilloscopes, instruments)
+
+- role: Stagiaire en ingénierie de données
+  company: Innovation Maritime
+  location: Rimouski, QC
+  start: avr. 2021
+  end: oct. 2021
+  points:
+    - Architecture de flux de données massives avec Hadoop, Spark et Hive
+    - Optimisation de la performance des requêtes Hive et des jobs Spark (réduction des temps de traitement)
+    - Création d'outils de visualisation interactive pour des données maritimes complexes

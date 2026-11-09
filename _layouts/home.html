@@ -1,0 +1,138 @@
+---
+layout: default
+---
+{%- include i18n.html -%}
+{%- assign profile = d.profile -%}
+
+<section class="hero container">
+  <div class="hero-text">
+    <p class="eyebrow">{{ profile.eyebrow }}</p>
+    <h1>{{ profile.headline }}</h1>
+    <p class="lead">{{ profile.intro }}</p>
+    {%- if profile.available %}
+    <p class="status"><span class="dot" aria-hidden="true"></span>{{ profile.availability }}</p>
+    {%- endif %}
+    <div class="actions">
+      <a class="btn primary" href="{{ t.cv_url | relative_url }}" download>{% include icon.html name="download" %} {{ t.download_cv }}</a>
+      <a class="btn" href="https://github.com/{{ site.author.github }}">{% include icon.html name="github" %} GitHub</a>
+      <a class="btn" href="https://www.linkedin.com/in/{{ site.author.linkedin }}/">{% include icon.html name="linkedin" %} LinkedIn</a>
+    </div>
+  </div>
+  <figure class="hero-photo">
+    <img src="{{ site.author.photo | relative_url }}" alt="{{ t.portrait_alt }}" width="360" height="360">
+    <figcaption>{% include icon.html name="pin" %} {{ site.author.location }}</figcaption>
+  </figure>
+  <ul class="now">
+    {%- for item in profile.now %}
+    <li><span class="label">{{ item.label }}</span>{{ item.text }}</li>
+    {%- endfor %}
+  </ul>
+</section>
+
+<section class="section container" id="skills">
+  <header class="section-header">
+    <p class="eyebrow">{{ t.skills_eyebrow }}</p>
+    <h2>{{ t.skills_title }}</h2>
+  </header>
+  <ol class="pipeline">
+    {%- for s in d.skills.stages %}
+    <li class="stage">
+      <p class="stage-name"><span>{{ forloop.index | prepend: '0' }}</span>{{ s.name }}</p>
+      <p class="stage-blurb">{{ s.blurb }}</p>
+      <ul class="tags">{% for i in s.items %}<li>{{ i }}</li>{% endfor %}</ul>
+    </li>
+    {%- endfor %}
+  </ol>
+  {%- if d.skills.also %}<p class="muted small-text">{{ d.skills.also }}</p>{% endif %}
+</section>
+
+<section class="section container" id="projects">
+  <header class="section-header">
+    <p class="eyebrow">{{ t.projects_eyebrow }}</p>
+    <h2>{{ t.projects_title }}</h2>
+    <a class="section-link" href="{{ t.projects_url | relative_url }}">{{ t.all_projects }} {% include icon.html name="arrow" %}</a>
+  </header>
+  <div class="grid two">
+    {%- for p in d.projects %}{% if p.featured %}
+    {% include project-card.html project=p %}
+    {%- endif %}{% endfor %}
+  </div>
+</section>
+
+<section class="section container" id="experience">
+  <header class="section-header">
+    <p class="eyebrow">{{ t.experience_eyebrow }}</p>
+    <h2>{{ t.experience_title }}</h2>
+  </header>
+  <ol class="timeline">
+    {%- for job in d.experience %}
+    <li>
+      <p class="when">{{ job.start }} — {{ job.end }}</p>
+      <div>
+        <h3>{{ job.role }} <span class="at">· {{ job.company }}</span></h3>
+        <p class="where">{{ job.location }}</p>
+        <ul>{% for pt in job.points %}<li>{{ pt }}</li>{% endfor %}</ul>
+      </div>
+    </li>
+    {%- endfor %}
+  </ol>
+</section>
+
+{%- include visible-posts.html -%}
+<section class="section container" id="writing">
+  <header class="section-header">
+    <p class="eyebrow">{{ t.writing_eyebrow }}</p>
+    <h2>{{ t.writing_title }}</h2>
+    {% if visible_posts.size > 0 %}<a class="section-link" href="{{ t.blog_url | relative_url }}">{{ t.all_articles }} {% include icon.html name="arrow" %}</a>{% endif %}
+  </header>
+  {%- if visible_posts.size > 0 %}
+  <ul class="post-list">
+    {%- for post in visible_posts limit: 3 %}{% include post-item.html post=post %}{% endfor %}
+  </ul>
+  {%- else %}
+  <p class="empty">{{ t.articles_soon }}</p>
+  {%- endif %}
+</section>
+
+<section class="section container" id="education">
+  <header class="section-header">
+    <p class="eyebrow">{{ t.education_eyebrow }}</p>
+    <h2>{{ t.education_title }}</h2>
+  </header>
+  <div class="grid two">
+    <div>
+      <ul class="plain-list">
+        {%- for deg in d.education.degrees %}
+        <li>
+          <p class="item-title">{{ deg.degree }}</p>
+          <p class="muted">{{ deg.school }}{% if deg.note %} · {{ deg.note }}{% endif %}</p>
+          <p class="when">{{ deg.year }}</p>
+        </li>
+        {%- endfor %}
+      </ul>
+    </div>
+    <div>
+      <ul class="plain-list">
+        {%- for c in d.education.certifications %}
+        <li>
+          <p class="item-title">{{ c.name }}</p>
+          <p class="muted">{{ c.issuer }}</p>
+        </li>
+        {%- endfor %}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section container" id="contact">
+  <div class="contact card">
+    <p class="eyebrow">{{ t.contact_eyebrow }}</p>
+    <h2>{{ t.contact_title }}</h2>
+    <p class="lead">{{ t.contact_lead }}</p>
+    <div class="actions">
+      <a class="btn primary" href="mailto:{{ site.author.email }}">{% include icon.html name="mail" %} {{ site.author.email }}</a>
+      <a class="btn" href="https://www.linkedin.com/in/{{ site.author.linkedin }}/">{% include icon.html name="linkedin" %} LinkedIn</a>
+      <a class="btn" href="{{ t.cv_url | relative_url }}" download>{% include icon.html name="download" %} {{ t.cv_short }}</a>
+    </div>
+  </div>
+</section>

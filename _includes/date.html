@@ -1,0 +1,8 @@
+{%- comment -%} Usage: {% include date.html date=post.date short=true %} {%- endcomment -%}
+{%- if lang == "fr" -%}
+  {%- assign m = include.date | date: "%-m" | minus: 1 -%}
+  {%- if include.short -%}{%- assign mname = t.months_short[m] -%}{%- else -%}{%- assign mname = t.months[m] -%}{%- endif -%}
+  {{- include.date | date: "%-d" }} {{ mname }} {{ include.date | date: "%Y" -}}
+{%- else -%}
+  {%- if include.short -%}{{- include.date | date: t.date_short -}}{%- else -%}{{- include.date | date: t.date_long -}}{%- endif -%}
+{%- endif -%}

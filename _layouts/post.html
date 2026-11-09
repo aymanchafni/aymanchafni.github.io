@@ -1,24 +1,38 @@
 ---
 layout: default
 ---
+{%- include i18n.html -%}
 {%- assign words = content | number_of_words -%}
 {%- assign minutes = words | divided_by: 200 | at_least: 1 -%}
+{%- comment -%} Previous / next within the same language only {%- endcomment -%}
+{%- assign same_lang = site.posts | where: "lang", lang -%}
+{%- assign newer = nil -%}{%- assign older = nil -%}
+{%- for p in same_lang -%}
+  {%- if p.url == page.url -%}
+    {%- unless forloop.first -%}{%- assign i = forloop.index0 | minus: 1 -%}{%- assign newer = same_lang[i] -%}{%- endunless -%}
+    {%- unless forloop.last -%}{%- assign i = forloop.index0 | plus: 1 -%}{%- assign older = same_lang[i] -%}{%- endunless -%}
+  {%- endif -%}
+{%- endfor -%}
 <article class="container post" itemscope itemtype="https://schema.org/BlogPosting">
   <header class="post-header">
-    <p class="eyebrow"><a href="{{ '/blog/' | relative_url }}">← All writing</a></p>
+    <p class="eyebrow"><a href="{{ t.blog_url | relative_url }}">{{ t.all_writing }}</a></p>
     <h1 itemprop="headline">{{ page.title }}</h1>
     {% if page.description %}<p class="lead">{{ page.description }}</p>{% endif %}
     <p class="post-meta">
-      <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%B %-d, %Y" }}</time>
+      <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{% include date.html date=page.date %}</time>
       <span aria-hidden="true">·</span>
-      <span>{{ minutes }} min read</span>
+      <span>{{ minutes }} {{ t.min_read }}</span>
       {%- if page.last_modified_at %}
       <span aria-hidden="true">·</span>
-      <span>Updated {{ page.last_modified_at | date: "%B %-d, %Y" }}</span>
+      <span>{{ t.updated }} {% include date.html date=page.last_modified_at %}</span>
+      {%- endif %}
+      {%- if alt_page %}
+      <span aria-hidden="true">·</span>
+      <a href="{{ alt_url }}" hreflang="{{ other_lang }}" lang="{{ other_lang }}">{{ t.switch_title }}</a>
       {%- endif %}
     </p>
     {%- if page.tags.size > 0 %}
-    <ul class="tags">{% for t in page.tags %}<li><a href="{{ '/blog/' | relative_url }}?tag={{ t | slugify }}">{{ t }}</a></li>{% endfor %}</ul>
+    <ul class="tags">{% for tag in page.tags %}<li><a href="{{ t.blog_url | relative_url }}?tag={{ tag | slugify }}">{{ tag }}</a></li>{% endfor %}</ul>
     {%- endif %}
   </header>
 
@@ -35,12 +49,14 @@ layout: default
       <img src="{{ site.author.photo | relative_url }}" alt="{{ site.author.name }}" width="56" height="56" loading="lazy">
       <div>
         <p class="author-name">{{ site.author.name }}</p>
-        <p class="author-bio">{{ site.tagline }} in {{ site.author.location }}. <a href="{{ '/' | relative_url }}">More about me</a> · <a href="https://www.linkedin.com/in/{{ site.author.linkedin }}/">LinkedIn</a></p>
+        <p class="author-bio">{{ t.tagline }} · {{ site.author.location }}. <a href="{{ t.home_url | relative_url }}">{{ t.more_about_me }}</a> · <a href="https://www.linkedin.com/in/{{ site.author.linkedin }}/">LinkedIn</a></p>
       </div>
     </div>
-    <nav class="post-nav" aria-label="More articles">
-      {% if page.previous %}<a class="prev" href="{{ page.previous.url | relative_url }}"><span>← Previous</span>{{ page.previous.title }}</a>{% else %}<span></span>{% endif %}
-      {% if page.next %}<a class="next" href="{{ page.next.url | relative_url }}"><span>Next →</span>{{ page.next.title }}</a>{% endif %}
+    {%- if older or newer %}
+    <nav class="post-nav" aria-label="{{ t.nav_writing }}">
+      {% if older %}<a class="prev" href="{{ older.url | relative_url }}"><span>{{ t.previous }}</span>{{ older.title }}</a>{% else %}<span></span>{% endif %}
+      {% if newer %}<a class="next" href="{{ newer.url | relative_url }}"><span>{{ t.next }}</span>{{ newer.title }}</a>{% endif %}
     </nav>
+    {%- endif %}
   </footer>
 </article>

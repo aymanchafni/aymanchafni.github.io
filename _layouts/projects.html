@@ -1,0 +1,18 @@
+---
+layout: page
+---
+{%- include i18n.html -%}
+<div class="grid two">
+  {%- for p in d.projects %}{% if p.featured %}
+  {% include project-card.html project=p %}
+  {%- endif %}{% endfor %}
+</div>
+
+<h2 class="subsection">{{ t.more_work }}</h2>
+<div class="grid three">
+  {%- for p in d.projects %}{% unless p.featured %}
+  {% include project-card.html project=p compact=true %}
+  {%- endunless %}{% endfor %}
+</div>
+
+<p class="muted center">{{ t.more_on_github }} <a href="https://github.com/{{ site.author.github }}?tab=repositories">github.com/{{ site.author.github }}</a>.</p>
