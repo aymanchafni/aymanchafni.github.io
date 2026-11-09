@@ -1,0 +1,28 @@
+{%- assign p = include.project -%}
+{%- if p.repo -%}
+  {%- if p.repo contains '://' -%}{%- assign repo_url = p.repo -%}
+  {%- else -%}{%- capture repo_url -%}https://github.com/{{ site.author.github }}/{{ p.repo }}{%- endcapture -%}{%- endif -%}
+{%- endif -%}
+<article class="card project{% if include.compact %} compact{% endif %}">
+  <p class="label">{{ p.category }}</p>
+  <h3>{% if repo_url %}<a href="{{ repo_url }}">{{ p.title }}</a>{% else %}{{ p.title }}{% endif %}</h3>
+  <p class="summary">{{ p.summary }}</p>
+  {%- if p.highlights and include.compact != true %}
+  <ul class="highlights">
+    {%- for h in p.highlights %}<li>{{ h }}</li>{% endfor %}
+  </ul>
+  {%- endif %}
+  {%- if p.stack %}
+  <ul class="tags" aria-label="Tech stack">
+    {%- for t in p.stack %}<li>{{ t }}</li>{% endfor %}
+  </ul>
+  {%- endif %}
+  {%- if repo_url or p.demo or p.article %}
+  <p class="card-links">
+    {%- if repo_url %}<a href="{{ repo_url }}">{% include icon.html name="github" %} Code</a>{% endif %}
+    {%- if p.demo %}<a href="{{ p.demo }}">{% include icon.html name="external" %} Live demo</a>{% endif %}
+    {%- if p.article %}<a href="{{ p.article | relative_url }}">{% include icon.html name="article" %} Write-up</a>{% endif %}
+  </p>
+  {%- endif %}
+</article>
+{%- assign repo_url = nil -%}

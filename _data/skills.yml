@@ -1,0 +1,24 @@
+# Skills, organised as the stages of a data pipeline.
+stages:
+  - name: Ingest
+    blurb: Pull data from APIs, files and streams, and land it reliably.
+    items: [Python, REST APIs, Airflow, HDFS, Bash]
+
+  - name: Transform
+    blurb: Clean, join and model data at scale.
+    items: [SQL, Apache Spark, dbt, Pandas, Hive, DuckDB]
+
+  - name: Store &amp; Model
+    blurb: Design schemas that make analytics fast and simple.
+    items: [PostgreSQL, MongoDB, Parquet, Star schemas, ETL / ELT]
+
+  - name: Learn
+    blurb: Forecast, classify and find structure in data.
+    items: [TensorFlow, Keras, LSTM, Time series, ARIMA, Machine learning]
+
+  - name: Ship
+    blurb: Package, deploy and serve it in production.
+    items: [Docker, Kubernetes, AWS, Azure, CI/CD, FastAPI, Git]
+
+# Shown as a single line under the pipeline
+also: "Also: C#/.NET, Java, C++, JavaScript/TypeScript · Clean Architecture, OOP, microservices · Agile/Scrum"

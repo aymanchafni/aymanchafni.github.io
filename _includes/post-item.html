@@ -1,0 +1,12 @@
+{%- assign post = include.post -%}
+<li class="post-item" data-tags="{% for t in post.tags %}{{ t | slugify }} {% endfor %}">
+  <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
+  <div>
+    <a class="post-title" href="{{ post.url | relative_url }}">{{ post.title }}</a>
+    {%- assign excerpt = post.description | default: post.excerpt | strip_html | strip_newlines | truncate: 180 -%}
+    {%- if excerpt != "" %}<p class="post-excerpt">{{ excerpt }}</p>{% endif %}
+    {%- if post.tags.size > 0 %}
+    <ul class="tags small">{% for t in post.tags %}<li>{{ t }}</li>{% endfor %}</ul>
+    {%- endif %}
+  </div>
+</li>

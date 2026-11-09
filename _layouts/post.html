@@ -1,0 +1,46 @@
+---
+layout: default
+---
+{%- assign words = content | number_of_words -%}
+{%- assign minutes = words | divided_by: 200 | at_least: 1 -%}
+<article class="container post" itemscope itemtype="https://schema.org/BlogPosting">
+  <header class="post-header">
+    <p class="eyebrow"><a href="{{ '/blog/' | relative_url }}">← All writing</a></p>
+    <h1 itemprop="headline">{{ page.title }}</h1>
+    {% if page.description %}<p class="lead">{{ page.description }}</p>{% endif %}
+    <p class="post-meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%B %-d, %Y" }}</time>
+      <span aria-hidden="true">·</span>
+      <span>{{ minutes }} min read</span>
+      {%- if page.last_modified_at %}
+      <span aria-hidden="true">·</span>
+      <span>Updated {{ page.last_modified_at | date: "%B %-d, %Y" }}</span>
+      {%- endif %}
+    </p>
+    {%- if page.tags.size > 0 %}
+    <ul class="tags">{% for t in page.tags %}<li><a href="{{ '/blog/' | relative_url }}?tag={{ t | slugify }}">{{ t }}</a></li>{% endfor %}</ul>
+    {%- endif %}
+  </header>
+
+  {%- if page.image %}
+  <img class="post-cover" src="{{ page.image | relative_url }}" alt="{{ page.image_alt | default: '' }}">
+  {%- endif %}
+
+  <div class="prose" itemprop="articleBody">
+    {{ content }}
+  </div>
+
+  <footer class="post-footer">
+    <div class="author-box">
+      <img src="{{ site.author.photo | relative_url }}" alt="{{ site.author.name }}" width="56" height="56" loading="lazy">
+      <div>
+        <p class="author-name">{{ site.author.name }}</p>
+        <p class="author-bio">{{ site.tagline }} in {{ site.author.location }}. <a href="{{ '/' | relative_url }}">More about me</a> · <a href="https://www.linkedin.com/in/{{ site.author.linkedin }}/">LinkedIn</a></p>
+      </div>
+    </div>
+    <nav class="post-nav" aria-label="More articles">
+      {% if page.previous %}<a class="prev" href="{{ page.previous.url | relative_url }}"><span>← Previous</span>{{ page.previous.title }}</a>{% else %}<span></span>{% endif %}
+      {% if page.next %}<a class="next" href="{{ page.next.url | relative_url }}"><span>Next →</span>{{ page.next.title }}</a>{% endif %}
+    </nav>
+  </footer>
+</article>

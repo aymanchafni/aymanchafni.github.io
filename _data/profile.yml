@@ -1,0 +1,22 @@
+# Text shown on the home page hero and "About" block.
+eyebrow: "data engineer · data scientist · montréal"
+headline: "I build data pipelines — and the models that run on them."
+intro: >-
+  Software &amp; data engineer with experience across the whole data lifecycle:
+  ingesting raw data, transforming it at scale with Spark, SQL and dbt,
+  orchestrating it with Airflow, and turning it into forecasts with machine
+  learning. I'm currently completing an M.Sc. focused on AI and data management
+  at UQAM, where I also teach SQL and advanced web programming labs.
+
+# Set to false to hide the green "open to roles" badge.
+available: true
+availability: "Open to Data Engineering & Data Science roles"
+
+# Short facts shown under the intro
+now:
+  - label: Freelance
+    text: ETL pipelines, dashboards &amp; ML for SMEs
+  - label: UQAM
+    text: M.Sc. in AI &amp; data management · SQL lab instructor
+  - label: Previously
+    text: Software &amp; test engineer at EXFO

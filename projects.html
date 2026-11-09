@@ -1,0 +1,21 @@
+---
+layout: page
+title: Projects
+eyebrow: selected work
+description: Data engineering pipelines, data science experiments and the occasional algorithm, most with source code on GitHub.
+permalink: /projects/
+---
+<div class="grid two">
+  {%- for p in site.data.projects %}{% if p.featured %}
+  {% include project-card.html project=p %}
+  {%- endif %}{% endfor %}
+</div>
+
+<h2 class="subsection">More work</h2>
+<div class="grid three">
+  {%- for p in site.data.projects %}{% unless p.featured %}
+  {% include project-card.html project=p compact=true %}
+  {%- endunless %}{% endfor %}
+</div>
+
+<p class="muted center">More on <a href="https://github.com/{{ site.author.github }}?tab=repositories">github.com/{{ site.author.github }}</a>.</p>

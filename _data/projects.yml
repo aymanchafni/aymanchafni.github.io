@@ -1,0 +1,137 @@
+# ---------------------------------------------------------------------------
+# Projects. `featured: true` → shown on the home page (keep it to 4–6).
+# Everything is listed on /projects/.
+#
+# Fields:
+#   title, category, summary   (required)
+#   highlights                 bullet points (optional)
+#   stack                      list of tech tags
+#   repo                       GitHub repo name (under your account) or full URL
+#   demo                       live demo URL (optional)
+#   article                    link to a blog post, e.g. /blog/2026/my-post/ (optional)
+# ---------------------------------------------------------------------------
+
+- title: Maritime AIS Data Pipeline
+  category: Data Engineering
+  featured: true
+  repo: simple-ais-pipeline
+  summary: >-
+    End-to-end pipeline for port-traffic monitoring (Tanger Med): ingests ship
+    tracking (AIS) data from NOAA, cleans it, computes vessel metrics and serves
+    them through a REST API and an interactive dashboard.
+  highlights:
+    - Ingestion from NOAA AIS archives or local CSV/ZIP files
+    - Cleaning (invalid positions, duplicates) and derived metrics such as distance travelled and time at dock
+    - PostgreSQL storage, FastAPI endpoints and a Streamlit dashboard
+    - Scheduled with Airflow; the full stack starts with one docker-compose command
+  stack: [Python, Airflow, PostgreSQL, FastAPI, Streamlit, Docker]
+
+- title: "ETL vs ELT: Pandas vs dbt Benchmark"
+  category: Data Engineering
+  featured: true
+  repo: etl_vs_dbt
+  summary: >-
+    A side-by-side study of an imperative ETL pipeline (Python + Pandas) and a
+    declarative ELT pipeline (dbt), both on DuckDB, building the same star
+    schema from TPC-H data.
+  highlights:
+    - Generates TPC-H data at configurable scale factors and stores it as Parquet
+    - Builds the same dimensional model (fact_sales + customer, product, region and date dimensions) both ways
+    - Benchmarks execution time, CPU time, peak memory and throughput per table and scale factor
+    - Compares data-quality testing, code complexity (LOC, cyclomatic complexity, maintainability index) and lineage
+  stack: [Python, dbt, DuckDB, Pandas, Parquet, Plotly]
+
+- title: Multi-City Weather Pipeline
+  category: Data Engineering
+  featured: true
+  repo: airflow_meteo
+  summary: >-
+    An Airflow DAG that pulls daily weather data for Montréal and Paris from the
+    Open-Meteo API in parallel, then merges, transforms and saves the results.
+  highlights:
+    - Fan-out / fan-in dependency graph (parallel extract → merge → transform → load)
+    - Raw JSON landing zone, then tabular outputs with Pandas
+    - Runs locally with Docker Compose
+  stack: [Airflow, Python, Pandas, Docker]
+
+- title: Metah-Viz — Metaheuristics Visualizer
+  category: Optimization · Data Viz
+  featured: true
+  repo: metah-viz
+  summary: >-
+    Interactive web app to watch optimization algorithms explore a function in
+    real time: a Python backend streams each iteration to a live-updating chart.
+  highlights:
+    - FastAPI backend streams optimizer iterations to the client
+    - Next.js / TypeScript front end renders the search live
+  stack: [Python, FastAPI, Next.js, TypeScript]
+
+- title: Email Attachment Screening Service
+  category: Data Engineering · Automation
+  repo: email-blacklist-monitor
+  summary: >-
+    Watches an Outlook mailbox through Microsoft Graph, extracts records from
+    Excel, CSV, PDF and image attachments (with OCR), matches them against a
+    blacklist and sends automatic alerts.
+  highlights:
+    - Azure AD app authentication with MSAL
+    - Text extraction from PDFs (PyMuPDF) and images (Tesseract OCR)
+    - Rule-based matching on ID numbers, name combinations and registration numbers
+  stack: [Python, Microsoft Graph, Azure AD, Pandas, OCR]
+
+- title: Time-Series Forecasting with LSTM
+  category: Data Science
+  summary: >-
+    Deep recurrent neural networks (TensorFlow / Keras) for time-series
+    analysis and forecasting.
+  stack: [Python, TensorFlow, Keras, LSTM]
+
+- title: COVID-19 Forecasting with ARIMA
+  category: Data Science
+  repo: Arima
+  summary: >-
+    Aggregates US county-level COVID-19 data into national daily series of new
+    cases and deaths, then fits ARIMA models to forecast them.
+  stack: [Python, Pandas, statsmodels, pmdarima]
+
+- title: Random Forest Classifier
+  category: Machine Learning
+  repo: random_forest
+  summary: >-
+    Random forest model for heart-disease prediction, with evaluation metrics
+    and Graphviz renderings of individual trees.
+  stack: [Python, scikit-learn, Graphviz]
+
+- title: Data Mining Algorithms
+  category: Machine Learning
+  repo: https://github.com/aymanchafni?tab=repositories
+  summary: >-
+    Implementations and experiments with classic data-mining techniques:
+    K-means clustering, Apriori association rules, decision trees and simple
+    classifiers.
+  stack: [Python, K-means, Apriori, Decision trees]
+
+- title: Bloom Filter Firewall
+  category: Algorithms
+  repo: BloomFilter
+  summary: >-
+    A Bloom filter simulating a firewall that can test, block and unblock
+    network addresses with a tiny memory footprint.
+  stack: [Python, Probabilistic data structures]
+
+- title: Ant Colony &amp; Particle Swarm Optimization
+  category: Optimization
+  repo: ant_colony_and_particle_swarm
+  summary: >-
+    Implementations of ant colony optimization for combinatorial problems and
+    particle swarm optimization for continuous functions.
+  stack: [Python, Jupyter, Metaheuristics]
+
+- title: Clean Architecture Solution
+  category: Software Engineering
+  repo: Solution-Clean-Architecture
+  summary: >-
+    A maintainable enterprise application in C#/.NET following Clean
+    Architecture: domain entities, repository interfaces, dependency injection
+    and design patterns.
+  stack: [C#, .NET, Clean Architecture]

@@ -1,0 +1,19 @@
+degrees:
+  - degree: M.Sc. Computer Science — Data Intelligence &amp; Management
+    school: UQAM (Université du Québec à Montréal)
+    year: In progress
+  - degree: M.Sc. Computer Science
+    school: UQAR (Université du Québec à Rimouski)
+    year: "2022"
+    note: GPA 3.79
+  - degree: Engineering Degree, Computer Systems
+    school: ENSMR (École Nationale Supérieure des Mines de Rabat)
+    year: "2022"
+
+certifications:
+  - name: AWS Certified Solutions Architect – Associate
+    issuer: Amazon Web Services
+  - name: IBM Data Science Professional Certificate
+    issuer: IBM
+  - name: Agile / Scrum Certification
+    issuer: Scrum Alliance

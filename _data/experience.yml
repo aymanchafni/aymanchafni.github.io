@@ -1,0 +1,42 @@
+# Most recent first.
+- role: Software &amp; Data Engineer
+  company: Freelance
+  location: Montréal, QC
+  start: May 2024
+  end: Present
+  points:
+    - Design scalable ETL pipelines in Python and Spark to integrate client data
+    - Build custom applications with analytics dashboards for small and medium businesses
+    - Implement machine-learning models for predictive time-series analysis
+    - Deploy containerized microservice architectures with Docker and AWS
+
+- role: Lab Instructor (Professeur auxiliaire)
+  company: UQAM
+  location: Montréal, QC
+  start: Mar 2026
+  end: Present
+  points:
+    - Lead hands-on SQL labs covering database design, querying and optimization
+    - Supervise advanced web programming labs (client- and server-side development)
+    - Help students apply theoretical concepts to practical cases
+
+- role: Software Developer &amp; Test Engineer
+  company: EXFO
+  location: Montréal, QC
+  start: Oct 2022
+  end: May 2024
+  points:
+    - Developed complex Python and C# applications in a Windows network environment
+    - Implemented Hardware-in-the-Loop (HIL) systems to automate telecom testing
+    - Automated processes through custom APIs and shell scripts
+    - Worked closely with lab teams on hardware debugging (oscilloscopes, instruments)
+
+- role: Data Engineering Intern
+  company: Innovation Maritime
+  location: Rimouski, QC
+  start: Apr 2021
+  end: Oct 2021
+  points:
+    - Architected large-scale data flows with Hadoop, Spark and Hive
+    - Tuned Hive queries and Spark jobs to reduce processing times
+    - Built interactive visualization tools for complex maritime data

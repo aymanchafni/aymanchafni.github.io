@@ -1,0 +1,72 @@
+# ---------------------------------------------------------------------------
+# Site settings — edit these, then push. GitHub Pages rebuilds automatically.
+# (Changes to this file need a restart if you run `jekyll serve` locally.)
+# ---------------------------------------------------------------------------
+title: Ayman Chafni
+tagline: Data Engineer · Data Scientist
+description: >-
+  Data engineer and data scientist based in Montréal. I build reliable data
+  pipelines (Python, Spark, Airflow, dbt, SQL) and the machine-learning models
+  that run on top of them.
+url: "https://aymanchafni.github.io"
+baseurl: ""
+lang: en
+timezone: America/Toronto
+
+author:
+  name: Ayman Chafni
+  email: aymanchafni@gmail.com
+  github: aymanchafni
+  linkedin: ayman-chafni
+  location: Montréal, QC
+  photo: /assets/img/ayman.jpg
+  cv: /assets/files/Ayman-Chafni-CV.pdf
+
+# Used by jekyll-seo-tag for link previews (LinkedIn, Slack, X…)
+image: /assets/img/og-card.jpg
+logo: /assets/img/apple-touch-icon.png
+social:
+  name: Ayman Chafni
+  links:
+    - https://github.com/aymanchafni
+    - https://www.linkedin.com/in/ayman-chafni/
+
+# Articles live in _posts/ and are served at /blog/<year>/<slug>/
+permalink: /blog/:year/:title/
+
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  hard_wrap: false
+
+# Only plugins supported by GitHub Pages
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+feed:
+  path: feed.xml
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+  - scope:
+      path: ""
+    values:
+      layout: default
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - .bundle
+  - .jekyll-cache
+  - .vscode
+  - docker-compose.yml

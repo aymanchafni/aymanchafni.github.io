@@ -1,0 +1,12 @@
+# Local preview without installing Ruby:
+#   docker compose up
+# then open http://localhost:4000  (Ctrl+C to stop)
+services:
+  site:
+    image: jekyll/jekyll:pages
+    command: jekyll serve --host 0.0.0.0 --livereload --force_polling
+    ports:
+      - "4000:4000"
+      - "35729:35729"
+    volumes:
+      - .:/srv/jekyll
