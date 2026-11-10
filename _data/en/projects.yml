@@ -16,14 +16,14 @@
   featured: true
   repo: simple-ais-pipeline
   summary: >-
-    End-to-end pipeline for port-traffic monitoring (Tanger Med): ingests ship
-    tracking (AIS) data from NOAA, cleans it, computes vessel metrics and serves
-    them through a REST API and an interactive dashboard.
+    Batch pipeline that ingests ship-tracking (AIS) data from NOAA, cleans it,
+    loads it idempotently into PostgreSQL and serves per-vessel metrics through
+    a REST API and a dashboard. Tested on 200,000 real positions (12,600 vessels).
   highlights:
-    - Ingestion from NOAA AIS archives or local CSV/ZIP files
-    - Cleaning (invalid positions, duplicates) and derived metrics such as distance travelled and time at dock
-    - PostgreSQL storage, FastAPI endpoints and a Streamlit dashboard
-    - Scheduled with Airflow; the full stack starts with one docker-compose command
+    - "Idempotent loads (COPY into staging + INSERT … ON CONFLICT): re-running a day inserts nothing twice"
+    - Vectorised distance and time metrics with explicit, unit-tested data-quality rules
+    - Airflow DAG with backfill support and a quality-check task; FastAPI + Streamlit serving
+    - pytest (unit, API, integration) and GitHub Actions CI; one-command Docker Compose setup
   stack: [Python, Airflow, PostgreSQL, FastAPI, Streamlit, Docker]
 
 - title: "ETL vs ELT: Pandas vs dbt Benchmark"
@@ -31,53 +31,59 @@
   featured: true
   repo: etl_vs_dbt
   summary: >-
-    A side-by-side study of an imperative ETL pipeline (Python + Pandas) and a
-    declarative ELT pipeline (dbt), both on DuckDB, building the same star
-    schema from TPC-H data.
+    Builds the same TPC-H star schema twice, with Python + pandas (ETL) and with
+    dbt on DuckDB (ELT), verifies both produce identical tables, then compares
+    speed, memory, testing and complexity. On 6M rows, ELT is ~5× faster with
+    ~6× less memory.
   highlights:
-    - Generates TPC-H data at configurable scale factors and stores it as Parquet
-    - Builds the same dimensional model (fact_sales + customer, product, region and date dimensions) both ways
-    - Benchmarks execution time, CPU time, peak memory and throughput per table and scale factor
-    - Compares data-quality testing, code complexity (LOC, cyclomatic complexity, maintainability index) and lineage
-  stack: [Python, dbt, DuckDB, Pandas, Parquet, Plotly]
+    - Shared, referentially consistent samples so both pipelines process exactly the same data
+    - "Fair measurement: per-model times from dbt run_results, process-tree memory sampling, warm-up runs"
+    - Output equivalence check, 29 data-quality tests per side, reproducible Docker benchmark
+    - Small data favours pandas (dbt's fixed overhead); the crossover is measured, not assumed
+  stack: [Python, dbt, DuckDB, Pandas, Parquet, Docker]
 
 - title: Multi-City Weather Pipeline
   category: Data Engineering
   featured: true
   repo: airflow_meteo
   summary: >-
-    An Airflow DAG that pulls daily weather data for Montréal and Paris from the
-    Open-Meteo API in parallel, then merges, transforms and saves the results.
+    Daily Airflow pipeline that fetches weather for five cities from the
+    Open-Meteo API, validates it and upserts it into a DuckDB warehouse, with
+    catch-up and re-processing of any past day.
   highlights:
-    - Fan-out / fan-in dependency graph (parallel extract → merge → transform → load)
-    - Raw JSON landing zone, then tabular outputs with Pandas
-    - Runs locally with Docker Compose
-  stack: [Airflow, Python, Pandas, Docker]
+    - Dynamic task mapping (one fetch task per configured city) with the TaskFlow API
+    - Idempotent, date-partitioned runs; archive data replaces earlier forecasts on re-runs
+    - Data-quality gate that fails the run before loading bad data
+    - Logic in a plain Python package, unit-tested without Airflow, plus a DAG integrity test in CI
+  stack: [Airflow, Python, DuckDB, Pandas, Docker]
 
-- title: Metah-Viz — Metaheuristics Visualizer
+- title: Metah-Viz — Metaheuristics, Live
   category: Optimization · Data Viz
   featured: true
   repo: metah-viz
   summary: >-
-    Interactive web app to watch optimization algorithms explore a function in
-    real time: a Python backend streams each iteration to a live-updating chart.
+    Interactive lab to watch PSO, differential evolution, simulated annealing,
+    hill climbing and random search explore a landscape in real time, and to
+    compare them statistically over many seeds.
   highlights:
-    - FastAPI backend streams optimizer iterations to the client
-    - Next.js / TypeScript front end renders the search live
-  stack: [Python, FastAPI, Next.js, TypeScript]
+    - NumPy optimizers written as generators, streamed to the browser over Server-Sent Events
+    - Benchmark functions plus a constrained 4-D engineering design problem
+    - "Compare mode: mean convergence vs. evaluation budget, mean ± std and success rate"
+    - Next.js / TypeScript canvas visualisation; 27 backend tests; Docker Compose
+  stack: [Python, NumPy, FastAPI, Next.js, TypeScript]
 
 - title: Email Attachment Screening Service
   category: Data Engineering · Automation
   repo: email-blacklist-monitor
   summary: >-
-    Watches an Outlook mailbox through Microsoft Graph, extracts records from
-    Excel, CSV, PDF and image attachments (with OCR), matches them against a
-    blacklist and sends automatic alerts.
+    Watches an Outlook mailbox through Microsoft Graph, extracts text from
+    Excel, CSV, PDF and image attachments (OCR), matches it against a blacklist
+    and sends alerts, without missing mail or failing silently.
   highlights:
-    - Azure AD app authentication with MSAL
-    - Text extraction from PDFs (PyMuPDF) and images (Tesseract OCR)
-    - Rule-based matching on ID numbers, name combinations and registration numbers
-  stack: [Python, Microsoft Graph, Azure AD, Pandas, OCR]
+    - Normalised, boundary-aware matching of IDs, plates and names in messy document text
+    - Persistent UTC cursor, Graph pagination, token refresh and retries
+    - 18 tests including real PDF/XLSX/OCR extraction
+  stack: [Python, Microsoft Graph, MSAL, Pandas, OCR]
 
 - title: Time-Series Forecasting with LSTM
   category: Data Science
@@ -86,21 +92,23 @@
     analysis and forecasting.
   stack: [Python, TensorFlow, Keras, LSTM]
 
-- title: COVID-19 Forecasting with ARIMA
+- title: COVID-19 Forecasting with SARIMA
   category: Data Science
   repo: Arima
   summary: >-
-    Aggregates US county-level COVID-19 data into national daily series of new
-    cases and deaths, then fits ARIMA models to forecast them.
-  stack: [Python, Pandas, statsmodels, pmdarima]
+    28-day forecasts of US daily cases and deaths with seasonal ARIMA (AIC model
+    selection), evaluated against a seasonal-naive baseline, which it beats on
+    cases but not on deaths.
+  stack: [Python, statsmodels, Pandas, Matplotlib]
 
-- title: Random Forest Classifier
+- title: Heart-Disease Prediction
   category: Machine Learning
   repo: random_forest
   summary: >-
-    Random forest model for heart-disease prediction, with evaluation metrics
-    and Graphviz renderings of individual trees.
-  stack: [Python, scikit-learn, Graphviz]
+    Random forests vs. baselines on 918 patients with a leak-free pipeline and
+    nested cross-validation (test ROC AUC 0.94, recall 0.94). Surfaces a
+    missing-data artifact that inflates a feature's importance.
+  stack: [Python, scikit-learn, Pandas]
 
 - title: Data Mining Algorithms
   category: Machine Learning
