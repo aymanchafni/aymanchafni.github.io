@@ -57,6 +57,8 @@ en:
   filter_all: All
   no_match: No articles with this tag yet.
   subscribe: Subscribe via RSS
+  visits: visits
+  analytics_note: "Privacy-friendly analytics (GoatCounter): no cookies, no personal data"
   blog_empty: Articles are coming soon. In the meantime, check out my
   blog_empty_link: projects
   other_lang_badge: In French
@@ -120,6 +122,8 @@ fr:
   filter_all: Tous
   no_match: Aucun article avec ce sujet pour l'instant.
   subscribe: S'abonner au flux RSS
+  visits: visites
+  analytics_note: "Statistiques respectueuses de la vie privée (GoatCounter) : aucun témoin, aucune donnée personnelle"
   blog_empty: Les articles arrivent bientôt. En attendant, découvrez mes
   blog_empty_link: projets
   other_lang_badge: En anglais

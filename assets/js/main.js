@@ -16,6 +16,20 @@
     });
   }
 
+  // ---- Total visits (GoatCounter public counter; stays hidden if unavailable) ----
+  var visits = document.querySelector("[data-goatcounter-total]");
+  if (visits && window.fetch) {
+    fetch(visits.getAttribute("data-goatcounter-total"))
+      .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
+      .then(function (data) {
+        var n = parseInt(String(data.count).replace(/\D/g, ""), 10);
+        if (!n) return;
+        visits.textContent = " · " + n.toLocaleString(root.lang || "en") + " " + visits.getAttribute("data-label");
+        visits.hidden = false;
+      })
+      .catch(function () {});
+  }
+
   // ---- Copy buttons on code blocks ----
   var fr = (root.lang || "").indexOf("fr") === 0;
   var COPY = fr ? "copier" : "copy";

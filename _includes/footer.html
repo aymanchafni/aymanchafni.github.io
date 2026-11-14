@@ -1,6 +1,13 @@
 <footer class="site-footer">
   <div class="container footer-inner">
-    <p>© {{ site.time | date: "%Y" }} {{ site.author.name }} · {{ site.author.location }}</p>
+    <p>
+      © {{ site.time | date: "%Y" }} {{ site.author.name }} · {{ site.author.location }}
+      {%- assign gc = site.analytics.goatcounter -%}
+      {%- if gc and gc != "" and site.analytics.show_visits %}
+      <span class="visits" data-goatcounter-total="https://{{ gc }}.goatcounter.com/counter/TOTAL.json"
+            data-label="{{ t.visits }}" title="{{ t.analytics_note }}" hidden></span>
+      {%- endif %}
+    </p>
     <p class="footer-links">
       <a href="{{ alt_url }}" hreflang="{{ other_lang }}" lang="{{ other_lang }}">{{ t.switch_title }}</a>
       <a href="https://github.com/{{ site.author.github }}" aria-label="GitHub">{% include icon.html name="github" %}</a>

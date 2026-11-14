@@ -31,6 +31,17 @@ social:
     - https://github.com/aymanchafni
     - https://www.linkedin.com/in/ayman-chafni/
 
+# Visitor analytics with GoatCounter (free, open source, no cookies).
+# 1. Create a site at https://www.goatcounter.com/signup and pick a code, e.g. "aymanchafni"
+#    -> your dashboard (visits, countries/regions, referrers, pages) is https://aymanchafni.goatcounter.com
+# 2. Put that code below. Leave it empty to disable analytics.
+# Only the published site counts visits: local previews (`jekyll serve`) are never counted.
+analytics:
+  goatcounter: "aymanchafni"
+  # Show the total number of visits in the footer. Also enable
+  # "Allow adding visitor counts on your website" in GoatCounter's site settings.
+  show_visits: true
+
 # Articles live in _posts/ and are served at /blog/<year>/<slug>/
 permalink: /blog/:year/:title/
 

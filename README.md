@@ -107,6 +107,23 @@ GitHub Pages builds the site on every push:
    *Source: Deploy from a branch*, *Branch: `main` / `(root)`*.
 3. The site is live at <https://aymanchafni.github.io> about a minute later.
 
+## Visitor analytics
+
+Visits and where they come from (countries/regions, referrers such as LinkedIn,
+browsers, pages) are counted with [GoatCounter](https://www.goatcounter.com): free, open
+source, no cookies, so no consent banner is needed.
+
+1. Sign up at <https://www.goatcounter.com/signup> and choose a code, e.g. `aymanchafni`.
+2. Set it in `_config.yml`: `analytics: goatcounter: "aymanchafni"`, then push.
+3. Dashboard: `https://aymanchafni.goatcounter.com`.
+4. Optional:
+   * To show the total in the footer (`show_visits: true`), enable *Settings → Allow adding
+     visitor counts on your website* in GoatCounter.
+   * To exclude your own visits, open `https://aymanchafni.github.io/#toggle-goatcounter`
+     once in each of your browsers.
+
+Local previews never count: the script is only added to production builds.
+
 ## Previewing locally (optional)
 
 **With Docker** (no Ruby needed):

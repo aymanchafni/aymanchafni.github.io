@@ -1,0 +1,9 @@
+{%- comment -%}
+  GoatCounter page-view counting. Only on the published site (GitHub Pages builds with
+  JEKYLL_ENV=production), so local previews never inflate the numbers.
+  To exclude your own visits, open https://aymanchafni.github.io/#toggle-goatcounter once per browser.
+{%- endcomment -%}
+{%- assign gc = site.analytics.goatcounter -%}
+{%- if gc and gc != "" and jekyll.environment == "production" %}
+<script data-goatcounter="https://{{ gc }}.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+{%- endif %}
